@@ -15,44 +15,49 @@ limitations under the License.
 -->
 
 
-<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../polymer/polymer.html">
 
-<!--
-`<ft-url-param-behavior>`
 
-A behavior that lets components use parameters in the page URL.
+<script>
 
-@demo
--->
-<dom-module id="ft-url-param-behavior">
+    // Make sure the "FileThis" namespace exists
+    window.FileThis = window.FileThis || {};
 
-    <template>
+    /**
+     * `<ft-url-param-behavior>`
+     *
+     * A behavior that lets components use parameters in the page URL.
+     *
+     * @demo
+     * @polymerBehavior FileThis.UrlParamBehavior
+     */
+    FileThis.UrlParamBehavior = {
 
-        <style include="iron-flex iron-flex-alignment iron-positioning"></style>
+        properties: {
 
-        <style>
-            :host {
-                display:block;
-                overflow:hidden;
-                @apply --ft-url-param-behavior;
+            _urlParams:
+            {
+                type: Object,
+                value: {}
             }
-        </style>
+        },
 
-        <div>
-            ft-url-param-behavior
-        </div>
+        ready: function()
+        {
+            var url = window.location;
+        },
 
-    </template>
-
-    <script>
-        Polymer({
-
-            is: 'ft-url-param-behavior',
-
-            properties: {
+        getUrlParam: function(name)
+        {
+            switch (name)
+            {
+                case "useLocalData":
+                    return true;
+                default:
+                    return null;
             }
+        }
 
-        });
-    </script>
-</dom-module>
+    }
+
+</script>
