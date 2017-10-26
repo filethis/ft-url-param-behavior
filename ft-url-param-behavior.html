@@ -37,25 +37,43 @@ limitations under the License.
 
             _urlParams:
             {
-                type: Object,
-                value: {}
+                type: Object
             }
-        },
-
-        ready: function()
-        {
-            var url = window.location;
         },
 
         getUrlParam: function(name)
         {
-            switch (name)
+            if (!this._urlParams)
+                this._loadUrlParams();
+
+            var value = this._urlParams[name];
+            return value;
+        },
+
+        _loadUrlParams: function()
+        {
+            this._urlParams = {};
+
+            var url = window.location.href;
+            var querySeparatorIndex = url.indexOf('?');
+            var hasNoQuery = (querySeparatorIndex === -1);
+            if (hasNoQuery)
+                return;
+            var queryStartIndex = querySeparatorIndex + 1;
+            var rawQuery = url.slice(queryStartIndex);
+            hasNoQuery = (rawQuery.length === 0);
+            if (hasNoQuery)
+                return;
+            var query = decodeURIComponent(rawQuery);
+            var parameters = query.split('&');
+        
+            parameters.forEach(function(parameter)
             {
-                case "useLocalData":
-                    return true;
-                default:
-                    return null;
-            }
+                var parts = parameter.split('=', 2);
+                var name = parts[0];
+                var value = parts[1];
+                this._urlParams[name] = value;
+            }.bind(this));
         }
 
     }
