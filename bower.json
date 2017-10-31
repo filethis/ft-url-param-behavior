@@ -3,7 +3,7 @@
   "description": "A behavior that lets components use parameters in the page URL.",
   "main": "ft-url-param-behavior.html",
   "dependencies": {
-    "ft-element-demo": "filethis/ft-element-demo#^0.0.5",
+    "ft-element-demo": "filethis/ft-element-demo#^0.0.8",
     "polymer": "Polymer/polymer#1.9 - 2"
   },
   "devDependencies": {
