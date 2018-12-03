@@ -1,7 +1,7 @@
 # Project configuration
 NAME=ft-url-param-behavior
 SRC_DIR=
-VERSION=1.0.9
+VERSION=1.0.10
 LOCAL_PORT=3518
 GITHUB_USER=filethis
 GITHUB_USER_ABBREV=ft
