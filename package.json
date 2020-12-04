@@ -1,7 +1,7 @@
 {
   "description": "A behavior that lets components use parameters in the page URL.",
-  "name": "filethis/ft-url-param-behavior",
-  "version": "filethis/1.0.10",
+  "name": "ft-url-param-behavior",
+  "version": "1.0.10",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
