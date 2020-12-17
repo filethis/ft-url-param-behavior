@@ -13,11 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-/* ft-url-param-behavior element demo */
+/* ft-element-demo element demo */
 /* Imports */
 /**
 
-A behavior that lets components use parameters in the page URL.
+An element that can be used for the demo fixture for FileThis elements. Has a slot for the element to be demoed and a side bar for configuration options.
 
 @demo
  */
@@ -28,8 +28,9 @@ A behavior that lets components use parameters in the page URL.
 */
 
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
+import '@polymer/paper-checkbox/paper-checkbox.js';
 import '@polymer/polymer/polymer-legacy.js';
-import '../ft-url-param-behavior.js';
+import '../ft-element-demo.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
@@ -38,10 +39,30 @@ Polymer
   _template: html`
         <style include="iron-flex iron-flex-alignment iron-positioning"></style>
 
-        <div name="ft-url-param-behavior" style="width:100%; height: 100%; ">
+        <style>
+            :host {
+                display: block;
+                overflow: hidden;
+            }
+        </style>
 
-            <ft-url-param-behavior></ft-url-param-behavior>
-        </div>
+        <ft-element-demo show-config="true" style="width:100%; height: 100%; ">
+
+            <div slot="config" style="width:300px; text-align:center; padding-top: 20px; ">
+                slot="config"
+            </div>
+
+            <div slot="instance" class="layout horizontal wrap scroll" style="width:100%; height: 100%; ">
+
+                <img src="img/beagle.png">
+                <img src="img/dog-in-bowl.png">
+                <img src="img/jack-russel.png">
+                <img src="img/weimaraner.png">
+                <img src="img/puppy-by-woodpile.png">
+                <img src="img/jumping-over-mud.png">
+            </div>
+
+        </ft-element-demo>
 `,
 
   is: 'demo-fixture',
